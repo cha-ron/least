@@ -17,7 +17,6 @@ def main(stdscr):
         stdscr.clear()
         height, width = stdscr.getmaxyx()
 
-
         with open(target_name, "r") as target_file:
             current_line = 0
             for line in itertools.islice(target_file, start, start + height):
