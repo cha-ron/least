@@ -12,6 +12,9 @@ def main(stdscr):
     start = 0
     curses.curs_set(0)
 
+    with open(target_name, "r") as target_file:
+        file_length = sum(1 for line in target_file)
+
     while True:
         stdscr.move(0,0)
         stdscr.clear()
@@ -32,7 +35,7 @@ def main(stdscr):
         if c == ord('q'):
             break
         elif c == ord('j'):
-            start += 1
+            start = min(start + 1, file_length - height)
         elif c == ord('k'):
             start = max(start - 1, 0)
 
