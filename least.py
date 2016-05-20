@@ -22,6 +22,7 @@ def main(stdscr):
         stdscr.move(0,0)
         stdscr.clear()
         height, width = stdscr.getmaxyx()
+        max_line = max(file_length - height, 0)
 
         with open(target_name, "r") as target_file:
             current_line = 0
@@ -38,8 +39,16 @@ def main(stdscr):
         if c == ord('q'):
             break
         elif c == ord('j'):
-            start = min(start + 1, file_length - height)
+            start = min(start + 1, max_line)
         elif c == ord('k'):
             start = max(start - 1, 0)
+        elif c == ord('g'):
+            start = 0
+        elif c == ord('G'):
+            start = max_line
+        elif c == ord('+'):
+            start = min(start + height, max_line)
+        elif c == ord('-'):
+            start = max(start - height, 0)
 
 curses.wrapper(main)
