@@ -1,14 +1,17 @@
 import curses
 import sys
 import itertools
+import argparse
 
-if len(sys.argv) != 2:
-    sys.exit(1)
+parser = argparse.ArgumentParser()
+parser.add_argument("file", help="the file to page through")
+args = parser.parse_args()
 
-target_name = sys.argv[1]
+target_name = args.file
 stdscr = curses.initscr()
 
 def main(stdscr):
+    curses.use_default_colors()
     start = 0
     curses.curs_set(0)
 
