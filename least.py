@@ -3,7 +3,7 @@ import sys
 import itertools
 import argparse
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(prog='least')
 parser.add_argument("file", help="the file to page through")
 args = parser.parse_args()
 
