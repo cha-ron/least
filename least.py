@@ -3,7 +3,9 @@ import sys
 import itertools
 import argparse
 
-parser = argparse.ArgumentParser(prog='least')
+parser = argparse.ArgumentParser(prog='least',
+            description="If `less` is more than `more`, `least` is less than "
+                        "`less`: it's a minimal paging utility.")
 parser.add_argument("file", help="the file to page through")
 args = parser.parse_args()
 
